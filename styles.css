@@ -1,0 +1,106 @@
+body {
+  font-family: "Montserrat Alternates", sans-serif;
+  background: linear-gradient(
+    179.7deg,
+    rgb(197, 214, 227) 2.9%,
+    rgb(144, 175, 202) 97.1%
+  );
+}
+form .input-field,
+.submit-button {
+  margin-top: 40px;
+  height: 45px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+form .input-field {
+  width: 70%;
+  background: #ececec;
+  border: none;
+  padding-left: 20px;
+}
+
+form .submit-button {
+  box-sizing: border-box;
+  width: 28%;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid transparent;
+  background: #91b0cb;
+  color: #27214266;
+  transition: all 0.3s ease-in-out;
+}
+hr {
+  margin-top: 30px;
+  border: none;
+  background: #ececec;
+  height: 1px;
+}
+h1 {
+  font-weight: 500;
+  font-style: normal;
+  font-size: 50px;
+
+  color: #272142;
+}
+main p {
+  color: #27214266;
+  line-height: 30px;
+}
+p {
+  margin-top: -20px;
+}
+p strong {
+  color: #ff5d9e;
+}
+a {
+  color: #1e549f;
+}
+footer {
+  color: #27214266;
+  font-size: 10px;
+  text-align: center;
+  margin-top: 30px;
+}
+.input-field:focus {
+  border: 1px solid #93b1cb;
+  font-family: "Montserrat Alternates", sans-serif;
+  outline: none;
+}
+.submit-button:focus {
+  background: #f5feff;
+}
+.submit-button:hover {
+  cursor: pointer;
+}
+.container {
+  width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  background: #f5feff;
+  margin-top: 40px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px rgba(57, 58, 59, 0.8);
+}
+.material-symbols-outlined,
+.temp {
+  font-size: 40px;
+}
+.symbol {
+  font-size: 18px;
+  position: relative;
+  bottom: 20px;
+}
+.current-weather {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.featured-temp {
+  font-size: 70px;
+}
+.featured-symbol {
+  font-size: 25px;
+  position: relative;
+  bottom: 30px;
+}
