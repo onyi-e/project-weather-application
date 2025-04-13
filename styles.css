@@ -1,17 +1,23 @@
 body {
-  font-family: "Montserrat Alternates", sans-serif;
-  background: linear-gradient(
-    179.7deg,
-    rgb(197, 214, 227) 2.9%,
-    rgb(144, 175, 202) 97.1%
-  );
+  font-family: "Poppins", sans-serif;
+  background: rgb(144, 175, 202);
 }
+.container {
+  width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  background: #f5feff;
+  margin-top: 40px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px rgba(57, 58, 59, 0.8);
+}
+
 form .input-field,
 .submit-button {
   margin-top: 40px;
   height: 45px;
   border-radius: 8px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 1px rgba(90, 14, 14, 0.2);
 }
 form .input-field {
   width: 70%;
@@ -30,38 +36,6 @@ form .submit-button {
   color: #27214266;
   transition: all 0.3s ease-in-out;
 }
-hr {
-  margin-top: 30px;
-  border: none;
-  background: #ececec;
-  height: 1px;
-}
-h1 {
-  font-weight: 500;
-  font-style: normal;
-  font-size: 30px;
-
-  color: #272142;
-}
-main p {
-  color: #27214266;
-  line-height: 30px;
-}
-p {
-  margin-top: -20px;
-}
-p strong {
-  color: #ff5d9e;
-}
-a {
-  color: #1e549f;
-}
-footer {
-  color: #27214266;
-  font-size: 10px;
-  text-align: center;
-  margin-top: 30px;
-}
 .input-field:focus {
   border: 1px solid #93b1cb;
   font-family: "Montserrat Alternates", sans-serif;
@@ -73,34 +47,64 @@ footer {
 .submit-button:hover {
   cursor: pointer;
 }
-.container {
-  width: 600px;
-  margin: 0 auto;
-  padding: 30px;
-  background: #f5feff;
-  margin-top: 40px;
-  border-radius: 8px;
-  box-shadow: 2px 2px 2px rgba(57, 58, 59, 0.8);
+.current-reading-container {
+  text-align: center;
 }
-.material-symbols-outlined,
-.temp {
-  font-size: 40px;
+.material-symbols-outlined {
+  font-size: 30px;
+  padding: 5px;
 }
-.symbol {
-  font-size: 18px;
+
+.city-temp {
+  font-size: 80px;
+  font-weight: 400;
+  color: #021b41;
+}
+
+.city-temp-symbol-c,
+.city-temp-symbol-f {
   position: relative;
-  bottom: 20px;
+  left: -10px;
+  font-size: 20px;
+  top: -25px;
+  font-weight: 200;
+  transition: all 200ms ease-in-out;
 }
-.current-weather {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+.city-temp-symbol-c:hover,
+.city-temp-symbol-f:hover {
+  color: #ff5d9e;
+  cursor: pointer;
 }
-.featured-temp {
-  font-size: 70px;
+h2 {
+  margin-bottom: 5px;
 }
-.featured-symbol {
-  font-size: 25px;
-  position: relative;
-  bottom: 30px;
+.featured-city {
+  font-size: 30px;
+  font-weight: 300;
+}
+.humidity,
+.wind,
+.featured-country {
+  font-size: 16px;
+  font-weight: 200;
+}
+.weather-description {
+  font-size: 16px;
+  font-weight: 200;
+  margin-top: 0;
+}
+
+p strong {
+  color: #ff5d9e;
+  font-weight: 500;
+}
+a {
+  color: #1e549f;
+}
+footer {
+  color: #27214266;
+  font-size: 10px;
+  text-align: center;
+  margin-top: 30px;
 }

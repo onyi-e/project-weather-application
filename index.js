@@ -1,23 +1,27 @@
-function userInput(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector(".input-field");
-  let h1 = document.querySelector("h1");
-  h1.innerHTML = searchInput.value;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${h1.innerHTML}&key=${apiKey}`;
-  axios.get(apiUrl).then(displayWeather);
-}
-function displayWeather(response) {
-  let h1 = document.querySelector("h1");
-  h1.innerHTML = response.data.city;
-  let featureCityTemp = document.querySelector(".featured-temp");
-  let roundedUpTemp = Math.round(response.data.temperature.current);
-  featureCityTemp.innerHTML = `${roundedUpTemp}`;
+function updateCityInfo(response) {
+  let city = document.querySelector("#city");
+  let temperature = document.querySelector("#temperature");
+  let country = document.querySelector("#country");
+  let descriptionText = document.querySelector("#description-text");
+  let humidity = document.querySelector("#humidity");
+  let windSpeed = document.querySelector("#wind");
+  let date = response.data.location.localtime_epoch;
+  let fullDate = document.querySelector("#date-time");
+  let icon = document.querySelector("#icon");
+  icon.innerHTML = `<img src="https://www.weatherapi.com/docs/weather_conditions.json" />`;
 
-  console.log(response.data.city);
+  city.innerHTML = response.data.location.name;
+  temperature.innerHTML = Math.round(response.data.current.temp_c);
+  country.innerHTML = response.data.location.country;
+  descriptionText.innerHTML = response.data.current.condition.text;
+  humidity.innerHTML = `${response.data.current.humidity}%`;
+  windSpeed.innerHTML = `${response.data.current.wind_kph}km/hr`;
+  fullDate.innerHTML = convertTime(date);
 }
-let apiKey = "3aco6795a94b0838a7e43f73ad5b4e0t";
-
-function currentDate(date) {
+function convertTime(dateStamp) {
+  let currentTime = new Date();
+  let hour = currentTime.getHours();
+  let minute = currentTime.getMinutes();
   let days = [
     "Sunday",
     "Monday",
@@ -27,23 +31,28 @@ function currentDate(date) {
     "Friday",
     "Saturday",
   ];
-  day = days[date.getDay()];
-  let hour = date.getHours();
+  day = days[currentTime.getDay()];
+  return `${day}, ${hour}:${minute}`;
   if (hour < 10) {
     hour = `0${hour}`;
   }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
+  if (minute < 10) {
+    minute = `0${minute}`;
   }
-
-  return `${day} ${hour}:${minutes},`;
 }
-let inputField = document.querySelector("#submit-form");
-inputField.addEventListener("submit", userInput);
+convertTime();
+function callCityInfo(city) {
+  let apiUrl = `https://api.weatherapi.com/v1/current.json?key=9e92ee46d3d0485f83b174516251304&q=${city}`;
+  axios.get(apiUrl).then(updateCityInfo);
+}
 
-let updateddate = new Date();
+function changeCity(event) {
+  event.preventDefault();
+  let inputField = document.querySelector("#input-field");
+  callCityInfo(inputField.value);
+}
 
-let cityDate = document.querySelector("#city");
-
-cityDate.innerHTML = currentDate(updateddate);
+let form = document.querySelector("#submit-form");
+form.addEventListener("submit", changeCity);
+callCityInfo("paris");
+updateCityInfo("paris");
