@@ -51,8 +51,12 @@ form .submit-button {
   text-align: center;
 }
 .material-symbols-outlined {
-  font-size: 30px;
+  font-size: 20px;
+  background: transparent;
+  border-radius: 4px;
   padding: 5px;
+  margin-right: 20px;
+  border: 2px solid #edf7fa;
 }
 
 .city-temp {
@@ -73,7 +77,7 @@ form .submit-button {
 
 .city-temp-symbol-c:hover,
 .city-temp-symbol-f:hover {
-  color: #ff5d9e;
+  font-size: 25px;
   cursor: pointer;
 }
 h2 {
@@ -93,6 +97,11 @@ h2 {
   font-size: 16px;
   font-weight: 200;
   margin-top: 0;
+}
+.active {
+  color: #ff5d9e;
+  font-size: 25px;
+  font-weight: 400;
 }
 
 p strong {
